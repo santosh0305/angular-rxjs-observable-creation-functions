@@ -12,13 +12,15 @@ export class AppComponent implements OnInit  {
 
   ngOnInit(){
 
-    this.readNumberUsingOfOperator();
+    // this.readNumberUsingOfOperator();
     
-    this.readNumberUsingFromOperator();
+    // this.readNumberUsingFromOperator();
 
-    this.readStringsFromStream();
+    // this.readStringsFromStream();
 
-    this.readUsingPipeOperator();
+    // this.readUsingPipeOperator();
+
+    this.usePipeAndTap();
   }
 
   readNumberUsingOfOperator(){
@@ -58,6 +60,16 @@ export class AppComponent implements OnInit  {
         take(2)
       ).subscribe(console.log);
   }
+
+  usePipeAndTap(){
+    of(5,10,15,20).pipe(
+      map(item => item * 2),
+      tap(item => console.log(`Multiplied value is ${item}`)),
+      map(item => item -3),
+      tap(item => console.log(`Subtracted value is ${item}`))
+    ).subscribe(console.log)
+  }
+
 }
 
 // observable -> pipe -> subscribe
