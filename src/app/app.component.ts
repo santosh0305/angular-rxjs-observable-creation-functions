@@ -12,7 +12,27 @@ export class AppComponent implements OnInit  {
 
   ngOnInit(){
 
+    this.readUsingOfOperator();
+    
+    this.readUsingFromOperator();
+  }
+
+  readUsingOfOperator(){
     of(2,4,6,8).subscribe(console.log);
+    
+    of(2,4,6,8).subscribe(
+      (next) => console.log(`Next item is ${next}`),
+      (error) => console.error(`Error occured at ${error}`),
+      ()=> console.log(`Competed reading stream`)
+    );
+  }
+
+  readUsingFromOperator(){
+    from([1,2,3,4,5,6,7,8,9]).subscribe(
+      (next) => console.log(`Next item is ${next}`),
+      (error) => console.error(`Error occured at ${error}`),
+      ()=> console.log(`Competed reading stream`)
+    );
 
     const numbers = of(1,2,3,4);
     numbers.subscribe((number)=> console.log(number));
