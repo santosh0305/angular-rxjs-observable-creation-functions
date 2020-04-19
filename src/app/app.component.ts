@@ -21,6 +21,8 @@ export class AppComponent implements OnInit  {
     // this.readUsingPipeOperator();
 
     this.usePipeAndTap();
+
+    //this.useTakeOperator();
   }
 
   readNumberUsingOfOperator(){
@@ -66,8 +68,23 @@ export class AppComponent implements OnInit  {
       map(item => item * 2),
       tap(item => console.log(`Multiplied value is ${item}`)),
       map(item => item -3),
-      tap(item => console.log(`Subtracted value is ${item}`))
+      tap(item => console.log(`Subtracted value is ${item}`)),
+      map(item => {
+        if(item<20){
+          throw new Error('Values lesser than 10')
+        } 
+        return item;
+      })
     ).subscribe(console.log)
+  }
+
+  useTakeOperator(){
+    of(2,4,6,8,10,15,30).pipe(
+      tap(item => console.log(`Initial value ${item}`)),
+      map(item=>item / 2),
+      tap(item => console.log(`Divide Value : ${item}`)),
+      take(2)
+    ).subscribe();
   }
 
 }
