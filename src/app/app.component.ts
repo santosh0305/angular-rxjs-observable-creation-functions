@@ -11,8 +11,10 @@ export class AppComponent implements OnInit  {
   name = 'Angular';
 
   ngOnInit(){
-    const numbers = of(1,2,3,4);
 
+    of(2,4,6,8).subscribe(console.log);
+
+    const numbers = of(1,2,3,4);
     numbers.subscribe((number)=> console.log(number));
   }
 }
