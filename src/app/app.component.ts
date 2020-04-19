@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {of, from} from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap,map,take } from 'rxjs/operators';
 
 @Component({
   selector: 'my-app',
@@ -17,6 +17,8 @@ export class AppComponent implements OnInit  {
     this.readNumberUsingFromOperator();
 
     this.readStringsFromStream();
+
+    this.readUsingPipeOperator();
   }
 
   readNumberUsingOfOperator(){
@@ -47,4 +49,16 @@ export class AppComponent implements OnInit  {
       () => console.log('complete')
     );
   }
+
+  readUsingPipeOperator(){
+    of(2,4,6).
+      pipe(
+        map(item=> item * 2),
+        tap(item => console.log(item)),
+        take(2)
+      ).subscribe(console.log);
+  }
 }
+
+// observable -> pipe -> subscribe
+// https://rxjs.dev/operator-decision-tree
