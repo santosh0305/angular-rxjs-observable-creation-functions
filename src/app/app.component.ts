@@ -15,6 +15,8 @@ export class AppComponent implements OnInit  {
     this.readNumberUsingOfOperator();
     
     this.readNumberUsingFromOperator();
+
+    this.readStringsFromStream();
   }
 
   readNumberUsingOfOperator(){
@@ -36,5 +38,13 @@ export class AppComponent implements OnInit  {
 
     const numbers = of(1,2,3,4);
     numbers.subscribe((number)=> console.log(number));
+  }
+
+  readStringsFromStream(){
+    of('red apple','green apple', 'kashmir apple').subscribe(
+      (next) => console.log(`Next type of apple is ${next}`),
+      (err)=> console.error(`Error occured`),
+      () => console.log('complete')
+    );
   }
 }
