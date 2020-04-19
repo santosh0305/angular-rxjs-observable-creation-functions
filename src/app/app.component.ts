@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent implements OnInit  {
-  name = 'Angular';
+  name = 'Angular - RxJs';
 
   ngOnInit(){
 
