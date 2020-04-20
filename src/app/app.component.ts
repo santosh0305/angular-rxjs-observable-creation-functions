@@ -12,17 +12,17 @@ export class AppComponent implements OnInit  {
 
   ngOnInit(){
 
-    // this.readNumberUsingOfOperator();
+    this.readNumberUsingOfOperator();
     
-    // this.readNumberUsingFromOperator();
+    this.readNumberUsingFromOperator();
 
-    // this.readStringsFromStream();
+    this.readStringsFromStream();
 
-    // this.readUsingPipeOperator();
+    this.readUsingPipeOperator();
 
     this.usePipeAndTap();
 
-    //this.useTakeOperator();
+    this.useTakeOperator();
   }
 
   readNumberUsingOfOperator(){
